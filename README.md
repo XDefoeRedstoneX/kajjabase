@@ -9,4 +9,4 @@ Made by:
 How to use:
 1. Run DDL
 2. Run DML
-3. Run User Test (By Order)
+3. Run User Test (In Order)
