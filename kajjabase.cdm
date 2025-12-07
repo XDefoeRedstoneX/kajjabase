@@ -16,6 +16,7 @@
 <a:Modifier>defoe</a:Modifier>
 <a:PackageOptionsText>[FolderOptions]
 
+[FolderOptions\Conceptual Data Objects]
 GenerationCheckModel=Yes
 GenerationPath=
 GenerationOptions=
