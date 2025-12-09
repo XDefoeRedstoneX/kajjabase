@@ -103,7 +103,7 @@ CREATE TABLE Feedback (
     FOREIGN KEY (Customer_ID) REFERENCES Customers(Customer_ID)
 );
 
--- obejcts
+-- objects
 CREATE OR REPLACE VIEW vSalesToday AS
     SELECT s.Sales_ID, s.Date_Completed,
            SUM(sl.Total_Price) as Daily_Revenue FROM Sales s
@@ -332,7 +332,19 @@ END //
 
 CREATE PROCEDURE pUpdateProfile(IN parCustID VARCHAR(10), IN parNewEmail VARCHAR(255), IN parNewPhone VARCHAR(20))
 BEGIN
-    UPDATE Customers SET Cust_Email = parNewEmail, Cust_Number = parNewPhone WHERE Customer_ID = parCustID;
+    UPDATE Customers
+    SET Cust_Email =
+        CASE
+                         WHEN parNewEmail IS NULL OR parNewEmail = '' THEN Cust_Email
+                         ELSE parNewEmail
+        END,
+        Cust_Number =
+        CASE
+                          WHEN parNewPhone IS NULL OR parNewPhone = '' THEN Cust_Number
+                          ELSE parNewPhone
+        END
+    WHERE Customer_ID = parCustID;
+
     SELECT 'Profile Updated Successfully' AS Message;
 END //
 
