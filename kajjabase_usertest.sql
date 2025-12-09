@@ -8,8 +8,9 @@ SELECT fGenCustID('Zahck Snyder');
 CALL pRegisterCustomer('Zahck Snyder', 'zack@mail.com', 'pass123', '0811223344');
 SELECT * FROM customers;
 
--- Update Profile (Email)
+-- Update Profile (NULL = Same)
 CALL pUpdateProfile('ZAH01', 'realzack@mail.com', '0811223344');
+CALL pUpdateProfile('BUD01', NULL, '08999999999');
 SELECT * FROM customers;
 
 -- Add New Product
@@ -37,7 +38,9 @@ SELECT * FROM batches;
 CALL pCreateOrder('ZAH01');
 SELECT * FROM orders;
 
+-- Close Active Batch
 CALL pCloseBatch();
+SELECT * FROM batches;
 
 -- Add Items
 CALL pAddItemToOrder(CONCAT('O', DATE_FORMAT(CURDATE(), '%d%m%y'),'01'), 'P0005', 2);
