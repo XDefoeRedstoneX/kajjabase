@@ -103,7 +103,7 @@ CREATE TABLE Feedback (
     FOREIGN KEY (Customer_ID) REFERENCES Customers(Customer_ID)
 );
 
--- obejcts
+-- objects
 CREATE OR REPLACE VIEW vSalesToday AS
     SELECT s.Sales_ID, s.Date_Completed,
            SUM(sl.Total_Price) as Daily_Revenue FROM Sales s
