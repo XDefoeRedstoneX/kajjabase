@@ -19,13 +19,13 @@ CREATE TABLE Products (
 );
 
 CREATE TABLE Batches (
-                         Batch_ID VARCHAR(10) PRIMARY KEY,
-                         Batch_Name VARCHAR(50) NOT NULL,
-                         Open_Date DATETIME NOT NULL,
-                         Close_Date DATETIME NOT NULL,
-                         Delivery_Date Date NOT NULL,
-                         Status INT DEFAULT 1,
-                         status_del INT DEFAULT 0
+	Batch_ID VARCHAR(10) PRIMARY KEY,
+	Batch_Name VARCHAR(50) NOT NULL,
+	Open_Date DATETIME NOT NULL,
+	Close_Date DATETIME NOT NULL,
+	Delivery_Date Date NOT NULL,
+	Status INT DEFAULT 1,
+	status_del INT DEFAULT 0
 );
 
 
@@ -74,13 +74,13 @@ CREATE TABLE Sales_List (
 );
 
 CREATE TABLE Production (
-                            Production_ID VARCHAR(10) PRIMARY KEY,
-                            Product_ID VARCHAR(5) NOT NULL,
-                            Date_In DATE NOT NULL,
-                            Quantity INT NOT NULL,
-                            Production_Cost  FLOAT(12, 2) NOT NULL,
-                            status_del INT DEFAULT 0,
-                            FOREIGN KEY (Product_ID) REFERENCES Products(Product_ID)
+	Production_ID VARCHAR(10) PRIMARY KEY,
+	Product_ID VARCHAR(5) NOT NULL,
+	Date_In DATE NOT NULL,
+	Quantity INT NOT NULL,
+	Production_Cost  FLOAT(12, 2) NOT NULL,
+	status_del INT DEFAULT 0,
+	FOREIGN KEY (Product_ID) REFERENCES Products(Product_ID)
 );
 
 CREATE TABLE Waste (
